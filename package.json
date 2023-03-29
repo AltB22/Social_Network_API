@@ -1,0 +1,29 @@
+{
+  "name": "social_network_api",
+  "version": "1.0.0",
+  "description": "Social_Network_API",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon index",
+    "seed": "node utils/seed"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AltB22/Social_Network_API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/AltB22/Social_Network_API/issues"
+  },
+  "homepage": "https://github.com/AltB22/Social_Network_API#readme"
+}
