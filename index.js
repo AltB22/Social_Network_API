@@ -1,6 +1,8 @@
 const express = require('express');
-const db = require('./config/connection');
+const db = require('./config/connection');//mongoDB specified in ./config/connection
 const routes = require('./routes');
+
+
 
 const cwd = process.cwd();
 
