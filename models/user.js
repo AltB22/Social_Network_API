@@ -15,7 +15,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      match: [],//Must match a valid email address (look into Mongoose's matching validation),
+      // match: [],//Must match a valid email address (look into Mongoose's matching validation),
     },
     // thoughts: [thoughtSchema],
     friends: [friendSchema],

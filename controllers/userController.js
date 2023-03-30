@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const ObjectId = require('mongodb'.ObjectId);
+// const ObjectId = require('mongodb'.ObjectId);
 
 module.exports = {
   getAllUsers(req, res) {
