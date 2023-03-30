@@ -1,9 +1,8 @@
 const { Schema, model } = require('mongoose');
 // const thoughtSchema = require('./thought');
-const friendSchema = require('./friend');
-const reactionSchema = require('./reaction');
+const userSchema = require('./user');
 
-const userSchema = new Schema(
+const friendSchema = new Schema(
   {
     username: {
       type: String,
@@ -18,14 +17,8 @@ const userSchema = new Schema(
       match: [],//Must match a valid email address (look into Mongoose's matching validation),
     },
     // thoughts: [thoughtSchema],
-    friends: [friendSchema],
-    reactions: [reactionSchema]
-  },
-  {
-    toJSON: {
-      getters: true,
-    },
+    users: [userSchema],
   }
 )
-const User = model('user', userSchema);
-module.exports =  User;
+const Friend = model('friend', friendSchema);
+module.exports =  Friend;

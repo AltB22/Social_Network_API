@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const userSchema = require('./user')
 
 const reactionSchema = new Schema(
   {
@@ -18,21 +19,16 @@ const reactionSchema = new Schema(
       type: Date,
       default: () => new Date(+new Date() + 84 * 24 * 60 * 60 * 1000),
     },
-    students: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Student',
-      },
-    ],
+    users: [userSchema],
   },
   {
     toJSON: {
       virtuals: true,
     },
-    id: false,
+    id: true,
   }
 );
 
-const Course = model('course', courseSchema);
+const Reacton = model('reaction', reactionSchema);
 
-module.exports = Course;
+module.exports = Reacton;

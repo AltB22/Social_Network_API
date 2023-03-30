@@ -1,7 +1,9 @@
-const Student = require('./Student');
-const Course = require('./Course');
+const User = require('./user');
+const Thought = require('./thought');
+const Reaction = require('./reaction');
+const Friend = require('./friend');
 
-module.exports = { Student, Course };
+module.exports = { User, Friend, Thought, Reaction };
 
 //some notes on mongodb / non - relational databases in general:
 
