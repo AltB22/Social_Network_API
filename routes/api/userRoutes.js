@@ -1,20 +1,17 @@
 const router = require('express').Router();
+const ObjectId = require('mongodb'.ObjectId);
+
 const {
-  getCourses,
-  getSingleCourse,
-  createCourse,
-  updateCourse,
-  deleteCourse,
-} = require('../../controllers/courseController.js');
+  getAllUsers,
+  getSingleUser,
+  createUser,
+  updateUser,
+  deleteUser,
 
-// /api/courses
-router.route('/').get(getCourses).post(createCourse);
+} = require('../../controllers/userController.js');
 
-// /api/courses/:courseId
-router
-  .route('/:courseId')
-  .get(getSingleCourse)
-  .put(updateCourse)
-  .delete(deleteCourse);
+router.route('/').get(getAllUsers).post(createUser).post(deleteUser);
+
+router.route('/:userId').get(getSingleUser);
 
 module.exports = router;
