@@ -1,10 +1,10 @@
 const User = require('./user');
-// const Thought = require('./thought');
+const Thought = require('./thought');
 // const Reaction = require('./reaction');
 // const Friend = require('./friend');
 
-module.exports = User;
-// module.exports = { User, Friend, Thought, Reaction };
+// module.exports = User;
+module.exports = { User, Friend, Thought, Reaction };
 
 //some notes on mongodb / non - relational databases in general:
 

@@ -30,7 +30,7 @@ module.exports = {
 
   // update a new user
   updateUser(req, res) {
-    User.updateOne({_id: req.params.userId})
+    User.updateOne(req.body)
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
