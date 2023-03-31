@@ -4,7 +4,7 @@ const User = require('../models/user');
 module.exports = {
 
   //get all users
-  getAllUsers(req, res) {
+  getUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
@@ -12,7 +12,7 @@ module.exports = {
 
   //get individual user by ID
   getSingleUser(req, res) {
-    User.findOne({ _id: req.params.userId })
+    User.findOne({ _id: req.params.userId})
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
