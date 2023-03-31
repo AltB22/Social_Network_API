@@ -1,3 +1,5 @@
+const { application } = require('express');
+const { db } = require('../models/thought');
 const User = require('../models/user');
 
 module.exports = {
@@ -42,4 +44,22 @@ module.exports = {
 
 };
 
+// app.get('/path', (req, res) => {
+//   db.collection('listOfDocuments')
+
+// below notes on methods()
+
+// .find() find all
+
+// .sort({item: 1 || -1}) sorts in ascending or descending order
+
+// .skip(1) skip first doc
+
+// .limit(5) limits to 5 results
+
+// toArray((err, results)) => {
+//   if (err) throw err;
+//   res.send(results);
+// }
+// })
 

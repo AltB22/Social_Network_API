@@ -21,7 +21,7 @@ const thoughtSchema = new Schema(
       required: true,
     },
     // users: [userSchema],
-    // reactions: [reactionSchema],
+    reactions: [reactionSchema],//array of nested docs created by reactionSchema
   },
   {
     toJSON: {
@@ -29,7 +29,7 @@ const thoughtSchema = new Schema(
     },
   }
 );
-
+//need to add virtual called reactionCount getting the reactions.length
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;

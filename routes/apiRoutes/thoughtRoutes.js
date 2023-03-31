@@ -10,7 +10,7 @@ const {
 } = require('../../controllers/thoughtController.js');
 
 router.route('/').get(getThoughts).post(createThought);//.get = no body, .post = JSON username & email
-router.route('/:thoughtId').get(getSingleThought).delete(deleteThought);//Attach user id to URL
+router.route('/:thoughtId').get(getSingleThought).delete(deleteThought);//Attach user id to URL.  No body JSON
 
 
 module.exports = router;
