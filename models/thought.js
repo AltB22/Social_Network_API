@@ -1,27 +1,26 @@
 const { Schema, model } = require('mongoose');
-const userSchema = require('./user');
+// const dateFormat = require('..utils/dateFormat');
+// const userSchema = require('../models');
 // const reactionSchema = require('./reaction');
 
-
-// Schema to create Student model
+// Schema to create Thought model
 const thoughtSchema = new Schema(
   {
-    first: {
+    thoughtText: {
       type: String,
       required: true,
-      max_length: 50,
+      max_length: 280,
     },
-    last: {
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+      // get: (timestamp) => dateFormat(timestamp),
+    },
+    username: {
       type: String,
       required: true,
-      max_length: 50,
     },
-    github: {
-      type: String,
-      required: true,
-      max_length: 50,
-    },
-    users: [userSchema],
+    // users: [userSchema],
     // reactions: [reactionSchema],
   },
   {

@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
-// const thoughtSchema = require('./thought');
-const friendSchema = require('./friend');
-const reactionSchema = require('./reaction');
+const thoughtSchema = require('./thought');
+// const friendSchema = require('./friend');
+// const reactionSchema = require('./reaction');
 
 const userSchema = new Schema(
   {
@@ -17,7 +17,12 @@ const userSchema = new Schema(
       unique: true,
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
-    // thoughts: [thoughtSchema],
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }
+    ],
     // friends: [friendSchema],
     // reactions: [reactionSchema]
   },

@@ -4,8 +4,8 @@ const Thought = require('./thought');
 // const Friend = require('./friend');
 
 // module.exports = User;
-module.exports = { User, Friend, Thought, Reaction };
-
+module.exports = { User,  Thought };
+// module.exports = { User, Friend, Thought, Reaction };
 //some notes on mongodb / non - relational databases in general:
 
 //Database

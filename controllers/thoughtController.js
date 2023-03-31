@@ -1,5 +1,5 @@
 const Thought= require('../models/thought');
-// const ObjectId = require('mongodb'.ObjectId);
+
 
 module.exports = {
 
@@ -28,13 +28,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // update a new thought
-  updateThought(req, res) {
-    Thought.updateOne({_id: req.params.thoughtId})
-      .then((dbThoughtData) => res.json(dbThoughtData))
-      .catch((err) => res.status(500).json(err));
-  },
-// update a new user
+// update a new thought
   deleteThought(req, res) {
      Thought.deleteOne({_id: req.params.thoughtId})
       .then((dbThoughtData) => res.json(dbThoughtData))
