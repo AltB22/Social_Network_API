@@ -15,12 +15,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      // validate: [validateEmail, 'Please fill a valid email address'],
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     // thoughts: [thoughtSchema],
-    friends: [friendSchema],
-    reactions: [reactionSchema]
+    // friends: [friendSchema],
+    // reactions: [reactionSchema]
   },
   {
     toJSON: {

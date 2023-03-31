@@ -2,11 +2,15 @@ const User = require('../models/user');
 // const ObjectId = require('mongodb'.ObjectId);
 
 module.exports = {
+
+  //get all users
   getAllUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
+
+  //get individual user by ID
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .then((user) =>
@@ -16,10 +20,27 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
   // create a new user
   createUser(req, res) {
     User.create(req.body)
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
+
+  // update a new user
+  updateUser(req, res) {
+    User.updateOne({_id: req.params.userId})
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => res.status(500).json(err));
+  },
+// update a new user
+  deleteUser(req, res) {
+    User.deleteOne({_id: req.params.userId})
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => res.status(500).json(err));
+  },
+
 };
+
+
