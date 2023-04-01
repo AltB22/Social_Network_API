@@ -5,6 +5,6 @@ const friendRoutes = require('./friendRoutes');
 
 router.use('/user', userRoutes);
 router.use('/thought', thoughtRoutes);
-router.use('/friends', friendRoutes);
+// router.use('/:userId/friends', friendRoutes);
 
 module.exports = router;

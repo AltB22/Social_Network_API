@@ -47,18 +47,18 @@ module.exports = {
 
   addFriend(req, res) {
     User.findOneAndUpdate(
-    { _id: params.id },
-    { $addToSet: { friends: params.friendsId } },
-    { new: true }
-  )
-    .then((dbUserData) => res.json(dbUserData))
-    .catch((err) => res.status(500).json(err));
-},
-
+      { _id: req.params.userid },
+      { $addToSet: { friends: req.params.friendId } },
+      { new: true }
+    )
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => res.status(500).json(err));
+  },
+  
   deleteFriend(req, res) {
     User.findOneAndUpdate(
-      { _id: params.id },
-      { $pull: { friends: params.friendsId } },
+      { _id: req.params.userid },
+      { $pull: { friends: req.params.friendId } },
       { new: true }
     )
       .then((dbUserData) => {
