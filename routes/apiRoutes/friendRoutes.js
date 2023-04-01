@@ -4,7 +4,7 @@ const {
   getAllFriends,
   addFriend,
   removeFriend
-} = require('../../controllers/friendController');
+} = require('../../controllers/userController');
 
 // /api/friends
 router.route('/').get(getAllFriends).post(addFriend);
