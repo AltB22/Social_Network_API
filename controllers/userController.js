@@ -45,6 +45,14 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
+  addFriend(req, res) {
+    User.findOneAndUpdate
+};
+
+  addFriend(req, res) {
+    User.findOneAndUpdate
+};
+
 };
 
 // app.get('/path', (req, res) => {
