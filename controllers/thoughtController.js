@@ -1,6 +1,7 @@
 const Thought= require('../models/thought');
 
-
+//try to get bonus of removing user's thoughts when user deleted
+//need a post route to create reactions stored in an individual thought's reactions array field and delete route to pull and remove a reaction by reaction's reactionId val.
 module.exports = {
 
   //get all thoughts

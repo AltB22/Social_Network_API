@@ -4,6 +4,8 @@ const { Schema, model } = require('mongoose');
 // const reactionSchema = require('./reaction');
 
 // Schema to create Thought model
+//need to add reaction field subdoc in this model
+
 const thoughtSchema = new Schema(
   {
     thoughtText: {
@@ -21,7 +23,7 @@ const thoughtSchema = new Schema(
       required: true,
     },
     // users: [userSchema],
-    reactions: [reactionSchema],//array of nested docs created by reactionSchema
+    // reactions: [reactionSchema],//array of nested docs created by reactionSchema
   },
   {
     toJSON: {
@@ -33,3 +35,5 @@ const thoughtSchema = new Schema(
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
+
+

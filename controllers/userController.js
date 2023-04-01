@@ -1,6 +1,7 @@
 const { application } = require('express');
 const { db } = require('../models/thought');
 const User = require('../models/user');
+//try to get bonus of removing user's thoughts when user deleted
 
 module.exports = {
 
@@ -13,7 +14,8 @@ module.exports = {
 
   //get individual user by ID
   getSingleUser(req, res) {
-    User.findOne({ _id: req.params.userId})
+    User.findOne({ _id: req.params.userId, 
+    thoughts: req.params.thoughtId})
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
@@ -35,7 +37,7 @@ module.exports = {
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
-// update a new user
+// delete a user
   deleteUser(req, res) {
     User.deleteOne({_id: req.params.userId})
       .then((dbUserData) => res.json(dbUserData))
