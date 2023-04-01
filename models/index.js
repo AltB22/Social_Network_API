@@ -3,9 +3,10 @@ const Thought = require('./thought');
 // const Reaction = require('./reaction');
 // const Friend = require('./friend');
 
-// module.exports = User;
+
 module.exports = { User,  Thought };
-// module.exports = { User, Friend, Thought, Reaction };
+
+
 //some notes on mongodb / non - relational databases in general:
 
 //Database
@@ -13,3 +14,6 @@ module.exports = { User,  Thought };
         //Document (BSON object - look like typ. JS objects)
             //Fields as key : value pairs
             //Related data nested in embedded document
+
+
+// module.exports = { User, Friend, Thought, Reaction };

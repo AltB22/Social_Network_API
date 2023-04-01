@@ -13,7 +13,7 @@ const ReactionSchema = new Schema({
   reactionBody: {
     type: String,
     required: true,
-    maxLength: 100
+    maxLength: 280
   },
   username: {
     type: String,
@@ -28,7 +28,7 @@ const ReactionSchema = new Schema({
 });
 
 
-const thoughtSchema = new Schema(
+const ThoughtSchema = new Schema(
   {
     thoughtText: {
       type: String,
@@ -44,7 +44,7 @@ const thoughtSchema = new Schema(
       type: String,
       required: true,
     },
-    reactions: [reactionSchema],//array of nested docs created by reactionSchema
+    reactions: [ReactionSchema],//array of nested docs created by reactionSchema
   },
   {
     toJSON: {
@@ -55,6 +55,10 @@ const thoughtSchema = new Schema(
   }
 );
 //need to add virtual called reactionCount getting the reactions.length
+ThoughtSchema.virtual('reactionCount').get(function() {
+  return this.reactions.length;
+});
+
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
