@@ -29,6 +29,13 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
+  // update a thought
+  updateThought(req, res) {
+    Thought.updateOne({_id: req.params.thoughtId}, { $set: req.body })
+      .then((dbThoughtData) => res.json(dbThoughtData))
+      .catch((err) => res.status(500).json(err));
+  },
+
 // update a new thought
   deleteThought(req, res) {
      Thought.deleteOne({_id: req.params.thoughtId})

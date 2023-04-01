@@ -31,12 +31,13 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // update a new user
+// update a user
   updateUser(req, res) {
-    User.updateOne(req.body)
+    User.updateOne({_id: req.params.userId}, { $set: req.body })
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
-  },
+},
+
 // delete a user
   deleteUser(req, res) {
     User.deleteOne({_id: req.params.userId})
