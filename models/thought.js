@@ -3,7 +3,7 @@ const moment = require('moment');
 // const userSchema = require('../models');
 // const reactionSchema = require('./reaction');
 
-// Schema to create Thought model
+
 //need to add reaction field subdoc in this model
 const ReactionSchema = new Schema({
   reactionId: {
@@ -27,7 +27,7 @@ const ReactionSchema = new Schema({
   }
 });
 
-
+// Schema to create Thought model
 const ThoughtSchema = new Schema(
   {
     thoughtText: {

@@ -17,8 +17,10 @@ router.route('/').get(getUsers).post(createUser);//.get = no body, .post = JSON 
 //get one user by ID, update a user by ID, and delete a user by ID
 router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);//Attach user id to URL except for .put need both URL id extension AND JSON body username.
 
-// Add or delete a friend
+// Add and delete a friend
 router.route('/:userId/friends/:friendId').post(addFriend).delete(deleteFriend);
+
+
 
 
 
