@@ -1,18 +1,19 @@
 const { application } = require('express');
 const { db } = require('../models/thought');
 const User = require('../models/user');
+const { notify } = require('../routes/apiRoutes');
 //try to get bonus of removing user's thoughts when user deleted
 
 module.exports = {
 
-  //get all users
+//get all users
   getUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
 
-  //get individual user by ID
+//get individual user by ID
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId, 
     thoughts: req.params.thoughtId})
@@ -24,7 +25,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // create a new user
+// create a new user
   createUser(req, res) {
     User.create(req.body)
       .then((dbUserData) => res.json(dbUserData))
@@ -44,10 +45,12 @@ module.exports = {
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
-
+  
+//add a friend
   addFriend(req, res) {
+    console.log(req.params.userId),
     User.findOneAndUpdate(
-      { _id: req.params.userid },
+      { _id: req.params.userId },
       { $addToSet: { friends: req.params.friendId } },
       { new: true }
     )
@@ -55,9 +58,10 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   
+//delete friend
   deleteFriend(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.userid },
+      { _id: req.params.userId },
       { $pull: { friends: req.params.friendId } },
       { new: true }
     )
@@ -91,4 +95,5 @@ module.exports = {
 //   res.send(results);
 // }
 // })
+
 
