@@ -1,5 +1,5 @@
 const Thought= require('../models/thought');
-
+const { v4: uuidv4 } = require('uuid');
 //try to get bonus of removing user's thoughts when user deleted
 //need a post route to create reactions stored in an individual thought's reactions array field and delete route to pull and remove a reaction by reaction's reactionId val.
 module.exports = {
@@ -45,9 +45,11 @@ module.exports = {
 
   //add a reaction
   addReaction(req, res) {
+    const reaction = req.body;
+    reaction.reactionId = uuidv4();
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $addToSet: { reactions: req.params.reactionId } },
+      { $addToSet: { reactions: reaction } },
       { new: true }
     )
       .then((dbThoughtData) => res.json(dbThoughtData))
