@@ -1,7 +1,7 @@
-const { Schema, model, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const moment = require('moment');
-// const userSchema = require('../models');
-// const reactionSchema = require('./reaction');
+
+
 
 
 //need to add reaction field subdoc in this model
@@ -26,13 +26,13 @@ const ReactionSchema = new Schema({
     get: (timestamp) => moment(timestamp).format('MMM DD, YYYY [at] hh:mm a')
   }
 },
-// {
-//   toJSON: {
-//     virtuals: true,
-//     getters: true,
-//   },
-//   id: false
-// }
+{
+  toJSON: {
+    virtuals: true,
+    getters: true,
+  },
+  id: false
+}
 );
 
 // Schema to create Thought model with embedded reaction array
@@ -46,7 +46,7 @@ const ThoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      get: (timestamp) => dateFormat(timestamp).format('MMM DD, YYYY [at] hh:mm a')
+      get: (timestamp) => moment(timestamp).format('MMM DD, YYYY [at] hh:mm a')
     },
     username: {
       type: String,
