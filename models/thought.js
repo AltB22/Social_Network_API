@@ -26,13 +26,13 @@ const ReactionSchema = new Schema({
     get: (timestamp) => moment(timestamp).format('MMM DD, YYYY [at] hh:mm a')
   }
 },
-{
-  toJSON: {
-    virtuals: true,
-    getters: true,
-  },
-  id: false
-}
+// {
+//   toJSON: {
+//     virtuals: true,
+//     getters: true,
+//   },
+//   id: false
+// }
 );
 
 // Schema to create Thought model with embedded reaction array

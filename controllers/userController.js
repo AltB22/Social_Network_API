@@ -1,7 +1,7 @@
-const { application } = require('express');
-const { db } = require('../models/thought');
 const User = require('../models/user');
-const { notify } = require('../routes/apiRoutes');
+// const { app } = require('express');
+// const { db } = require('../models/thought');
+// const { notify } = require('../routes/apiRoutes');
 //try to get bonus of removing user's thoughts when user deleted
 
 module.exports = {
@@ -15,8 +15,7 @@ module.exports = {
 
 //get individual user by ID
   getSingleUser(req, res) {
-    User.findOne({ _id: req.params.userId, 
-    thoughts: req.params.thoughtId})
+    User.findOne({ _id: req.params.userId})
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
