@@ -1,5 +1,6 @@
 const Thought= require('../models/thought');
 const { v4: uuidv4 } = require('uuid');
+const mongoose = require('mongoose');
 //try to get bonus of removing user's thoughts when user deleted
 //need a post route to create reactions stored in an individual thought's reactions array field and delete route to pull and remove a reaction by reaction's reactionId val.
 module.exports = {
@@ -45,11 +46,13 @@ module.exports = {
 
   //add a reaction
   addReaction(req, res) {
-    const reaction = req.body;
-    reaction.reactionId = uuidv4();
+    const { thoughtId } = req.params;
+    const { reactionBody, username } = req.body;
+    const reactionId = mongoose.Types.ObjectId();
+    // reaction.reactionId = uuidv4();
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
-      { $addToSet: { reactions: reaction } },
+      { _id: thoughtId },
+      { $push: { reactions: { reactionId, reactionBody, username } } },
       { new: true }
     )
       .then((dbThoughtData) => res.json(dbThoughtData))
@@ -60,7 +63,7 @@ module.exports = {
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: req.params.reactionId } },
+      { $pull: { reactions: {_id: req.params.reactionId } } },
       { new: true }
     )
       .then((dbThoughtData) => {
@@ -68,7 +71,17 @@ module.exports = {
           res.status(404).json({ message: "no thought found with this ID" });
           return;
         }
-        res.json(dbThoughtData);
+        dbThoughtData.reactions.forEach((reaction => {
+          reaction.username = undefined;
+          reaction.reactionBody = undefined;
+        }),
+        
+        // dbThoughtData.reactionCount = dbThoughtData.reactions.length;
+        dbThoughtData.save()
+        .then((savedThought) => {
+          res.json(dbThoughtData);
+        })
+        .catch((err) => res.status(400).json(err)));
       })
       .catch((err) => res.status(400).json(err));
 },
