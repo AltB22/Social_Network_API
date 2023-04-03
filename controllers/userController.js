@@ -1,7 +1,5 @@
 const User = require('../models/user');
-// const { app } = require('express');
-// const { db } = require('../models/thought');
-// const { notify } = require('../routes/apiRoutes');
+
 //try to get bonus of removing user's thoughts when user deleted
 
 module.exports = {
@@ -76,10 +74,10 @@ module.exports = {
 
 };
 
+// below are just some notes on methods()
+
 // app.get('/path', (req, res) => {
 //   db.collection('listOfDocuments')
-
-// below notes on methods()
 
 // .find() find all
 

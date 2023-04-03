@@ -1,10 +1,8 @@
 const { Schema, model } = require('mongoose');
 const moment = require('moment');
 
-
-
-
 //need to add reaction field subdoc in this model
+
 const ReactionSchema = new Schema({
   reactionId: {
     type: Schema.Types.ObjectId,
