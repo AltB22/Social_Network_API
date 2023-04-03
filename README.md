@@ -3,7 +3,7 @@
 
   ## Description
   - This application an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. It usesse Express.js for routing, a MongoDB database, and the Mongoose ODM. In addition to using the Express.js and Mongoose packages.
-  
+
   ## Table of Contents
   [Demo Video](#demo)
 
@@ -20,6 +20,8 @@
   ## Demo Video Using Insomnia to Test Routes
 
   - Please see link below for demo video:
+
+  https://bootcampspot.instructuremedia.com/embed/78748092-6bfd-4ecd-96c0-62e4bf261bba
 
 
 
